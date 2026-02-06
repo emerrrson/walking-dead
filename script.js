@@ -6,6 +6,36 @@ document.body.style.background =
 document.body.style.color = "#f5f5f5";
 document.body.style.overflow = "hidden";
 
+// ==== BACKGRUND ====  
+document.body.style.margin = "0"
+document.body.style.minHeight = "100vh";
+document.body.style.backgroundImage = "url('./twd.jpg')"
+document.body.style.backgroundSize = "cover";
+document.body.style.backgroundPosition = "center";
+document.body.style.backgroundRepeat = "no-repeat";
+document.body.style.backgroundAttachment = "fixed";
+
+const overlay = document.createElement("div");
+overlay.style.position = "fixed";
+overlay.style.top = "0";
+overlay.style.left = "0";
+overlay.style.width = "100%";
+overlay.style.height = "100%";
+overlay.style.background =
+"linear-gradient(to bottom, rgba(45,0,0,0.85), rgba(0,0,0,0.95))";
+overlay.style.zIndex = "1";
+
+document.body.style.animation = "zoom 30s ease-in-out infinite alternate";
+
+const style = document.createElement("style");
+style.innerHTML = `
+@keyframes zoom {
+  from { background-size: 100%; }
+  to { background-size: 110%; }
+}
+`;
+document.head.appendChild(style);
+
 // ===== FOG / ATMOSPHERE =====
 const fog = document.createElement("div");
 fog.style.position = "absolute";
@@ -58,6 +88,7 @@ line.style.margin = "0 auto 30px";
 const text = document.createElement("p");
 text.innerText =
   "O mundo acabou. A lei caiu. Os mortos andam. Nesta nova realidade, não se trata de viver — trata-se de sobreviver.";
+document.body.style.fontFamily = "Roboto, sans-serif";
 text.style.fontSize = "1.2rem";
 text.style.lineHeight = "1.8";
 text.style.opacity = "0.9";
@@ -77,6 +108,8 @@ button.style.color = "#fff";
 button.style.letterSpacing = "1px";
 button.style.transition = "0.3s";
 
+
+
 // ===== BUTTON INTERACTION =====
 button.addEventListener("mouseenter", () => {
   button.style.transform = "scale(1.1)";
@@ -94,6 +127,8 @@ button.addEventListener("click", () => {
   button.innerText = "Sobrevivendo...";
 });
 
+
+
 // ===== APPEND =====
 card.appendChild(title);
 card.appendChild(line);
@@ -101,6 +136,8 @@ card.appendChild(text);
 card.appendChild(button);
 container.appendChild(card);
 document.body.appendChild(container);
+
+
 
 // ===== ENTRANCE ANIMATION =====
 setTimeout(() => {
